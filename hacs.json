@@ -1,5 +1,5 @@
 {
-    "name": "Guest Wifi Card",
+    "name": "Guest Wifi QR Code Card",
     "render_readme": true,
     "filename": "card.js",
     "content_in_root": false

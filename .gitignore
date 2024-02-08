@@ -1,3 +1,5 @@
-.parcel-cache
-node_modules
+node_modules/
+.parcel-cache/
 dist
+!dist/card.js
+!dist/card.js.map

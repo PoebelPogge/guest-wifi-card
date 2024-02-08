@@ -13,6 +13,6 @@ customElements.define(
 window.customCards = window.customCards || [];
 window.customCards.push({
     type: "guest-wifi-card",
-    name: "toggle card created with a toolchain",
-    description: "Turn an entity on and off",
+    name: "show wifi qr code",
+    description: "Displays the QR Code of your guest wifi",
 });

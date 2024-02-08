@@ -1,9 +1,10 @@
 {
-  "name": "guest-wifi-card",
   "version": "0.1.0",
   "description": "",
-  "source": "src/card.js",
-  "main": "dist/card.js",
+  "author": "PoebelPogge",
+  "license": "MIT",
+  "source": "src/index.js",
+  "module": "dist/card.js",
   "targets": {
     "module": {
       "includeNodeModules": true
@@ -13,10 +14,8 @@
     "watch": "parcel watch",
     "build": "parcel build"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "@parcel/transformer-inline-string": "^2.11.0",
-    "parcel": "^2.11.0"
+    "@parcel/transformer-inline-string": "^2.8.3",
+    "parcel": "^2.8.3"
   }
 }
