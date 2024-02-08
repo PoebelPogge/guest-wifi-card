@@ -1,11 +1,16 @@
 import html from "bundle-text:./card.html";
 import css from "bundle-text:./card.css";
 
+import { QRCode } from "qrcode";
+
+
+
 export class GuestWifiCard extends HTMLElement {
     // private properties
     _config;
     _hass;
     _elements = {};
+
 
     // lifecycle
     constructor() {
@@ -129,6 +134,13 @@ export class GuestWifiCard extends HTMLElement {
             this._elements.error.classList.add("hidden");
             this._elements.dl.classList.remove("hidden");
         }
+
+        var canvas = document.getElementById('canvas')
+
+        QRCode.toCanvas(canvas, 'hello world', function (error) {
+        if (error) console.error(error)
+        console.log('success!');
+})
     }
 
     doToggle() {
@@ -139,7 +151,7 @@ export class GuestWifiCard extends HTMLElement {
 
     // card configuration
     static getConfigElement() {
-        return document.createElement("toggle-card-with-toolchain-editor");
+        return document.createElement("guest-wifi-card-editor");
     }
 
     static getStubConfig() {
