@@ -11,6 +11,7 @@
     }
   },
   "scripts": {
+    "clean": "rm -r dist/",
     "watch": "parcel watch",
     "build": "parcel build"
   },

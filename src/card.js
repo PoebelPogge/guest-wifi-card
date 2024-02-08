@@ -1,7 +1,7 @@
 import html from "bundle-text:./card.html";
 import css from "bundle-text:./card.css";
 
-import { QRCode } from "qrcode";
+import QRCode from "qrcode";
 
 
 
@@ -48,6 +48,10 @@ export class GuestWifiCard extends HTMLElement {
 
     getHeader() {
         return this._config.header;
+    }
+
+    getSSID() {
+        return this._config.ssid;
     }
 
     getEntityID() {
@@ -135,12 +139,18 @@ export class GuestWifiCard extends HTMLElement {
             this._elements.dl.classList.remove("hidden");
         }
 
-        var canvas = document.getElementById('canvas')
+        var canvas = this._elements.card.querySelector('#canvas');
+        var ssid = this.getSSID();
 
-        QRCode.toCanvas(canvas, 'hello world', function (error) {
-        if (error) console.error(error)
-        console.log('success!');
-})
+        console.log("SSID: " + ssid);
+
+        if (canvas) {
+            var content = `WIFI:S:${ssid};T:WPA;P:#####;;`;
+            QRCode.toCanvas(canvas, content, function (error) {
+                if (error) console.error(error)
+                console.log('success!');
+            });
+        }
     }
 
     doToggle() {

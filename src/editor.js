@@ -51,6 +51,7 @@ export class GuestWifiCardEditor extends HTMLElement {
     doQueryElements() {
         this._elements.header = this._elements.editor.querySelector("#header");
         this._elements.entity = this._elements.editor.querySelector("#entity");
+        this._elements.ssid = this._elements.editor.querySelector("#ssid");
     }
 
     doListen() {
@@ -62,11 +63,16 @@ export class GuestWifiCardEditor extends HTMLElement {
             "focusout",
             this.onChanged.bind(this)
         );
+        this._elements.ssid.addEventListener(
+            "focusout",
+            this.onChanged.bind(this)
+        );
     }
 
     doUpdateConfig() {
         this._elements.header.value = this._config.header;
         this._elements.entity.value = this._config.entity;
+        this._elements.ssid.value = this._config.ssid;
     }
 
     doUpdateHass() { }
@@ -74,11 +80,15 @@ export class GuestWifiCardEditor extends HTMLElement {
     doMessageForUpdate(changedEvent) {
         // this._config is readonly, copy needed
         const newConfig = Object.assign({}, this._config);
+
         if (changedEvent.target.id == "header") {
             newConfig.header = changedEvent.target.value;
         } else if (changedEvent.target.id == "entity") {
             newConfig.entity = changedEvent.target.value;
+        } else if (changedEvent.target.id == "ssid") {
+            newConfig.ssid = changedEvent.target.value;
         }
+
         const messageEvent = new CustomEvent("config-changed", {
             detail: { config: newConfig },
             bubbles: true,
