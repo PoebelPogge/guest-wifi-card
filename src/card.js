@@ -99,8 +99,6 @@ export class GuestWifiCard extends HTMLElement {
         this._elements.error = card.querySelector(".error");
         this._elements.dl = card.querySelector(".dl");
         this._elements.topic = card.querySelector(".dt");
-        this._elements.toggle = card.querySelector(".toggle");
-        this._elements.value = card.querySelector(".value");
     }
 
     doListen() {
@@ -127,14 +125,6 @@ export class GuestWifiCard extends HTMLElement {
         } else {
             this._elements.error.textContent = "";
             this._elements.topic.textContent = this.getName();
-            if (this.isOff()) {
-                this._elements.toggle.classList.remove("on");
-                this._elements.toggle.classList.add("off");
-            } else if (this.isOn()) {
-                this._elements.toggle.classList.remove("off");
-                this._elements.toggle.classList.add("on");
-            }
-            this._elements.value.textContent = this.getState().state;
             this._elements.error.classList.add("hidden");
             this._elements.dl.classList.remove("hidden");
         }
@@ -154,9 +144,9 @@ export class GuestWifiCard extends HTMLElement {
     }
 
     doToggle() {
-        this._hass.callService("input_boolean", "toggle", {
+/*         this._hass.callService("input_boolean", "toggle", {
             entity_id: this.getEntityID(),
-        });
+        }); */
     }
 
     // card configuration
