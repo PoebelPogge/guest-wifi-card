@@ -37,15 +37,6 @@ export class GuestWifiCard extends HTMLElement {
         this.doToggle();
     }
 
-    // accessors
-    isOff() {
-        return this.getState().state === "off";
-    }
-
-    isOn() {
-        return this.getState().state === "on";
-    }
-
     getHeader() {
         return this._config.header;
     }
@@ -58,17 +49,12 @@ export class GuestWifiCard extends HTMLElement {
         return this._config.entity;
     }
 
-    getState() {
-        return this._hass.states[this.getEntityID()];
+    getEntityState(entity) {
+        return this._hass.states[entity];
     }
 
-    getAttributes() {
-        return this.getState().attributes;
-    }
-
-    getName() {
-        const friendlyName = this.getAttributes().friendly_name;
-        return friendlyName ? friendlyName : this.getEntityID();
+    getEntityAttributes(entity) {
+        return this.getState(entity).attributes;
     }
 
     // jobs
@@ -97,16 +83,16 @@ export class GuestWifiCard extends HTMLElement {
     doQueryElements() {
         const card = this._elements.card;
         this._elements.error = card.querySelector(".error");
-        this._elements.dl = card.querySelector(".dl");
-        this._elements.topic = card.querySelector(".dt");
+        this._elements.ssid_label = card.querySelector("#ssid-label");
+        this._elements.password_label = card.querySelector("#password-label");
     }
 
     doListen() {
-        this._elements.dl.addEventListener(
+/*         this._elements.dl.addEventListener(
             "click",
             this.onClicked.bind(this),
             false
-        );
+        ); */
     }
 
     doUpdateConfig() {
@@ -118,24 +104,21 @@ export class GuestWifiCard extends HTMLElement {
     }
 
     doUpdateHass() {
-        if (!this.getState()) {
-            this._elements.error.textContent = `${this.getEntityID()} is unavailable.`;
-            this._elements.error.classList.remove("hidden");
-            this._elements.dl.classList.add("hidden");
-        } else {
-            this._elements.error.textContent = "";
-            this._elements.topic.textContent = this.getName();
-            this._elements.error.classList.add("hidden");
-            this._elements.dl.classList.remove("hidden");
-        }
+        this._elements.error.textContent = "";
+        this._elements.error.classList.add("hidden");
 
         var canvas = this._elements.card.querySelector('#canvas');
         var ssid = this.getSSID();
+        var password = this.getEntityID();
 
         console.log("SSID: " + ssid);
+        console.log("PW: " + password);
+
+        this._elements.ssid_label.innerHTML = ssid;
+        this._elements.password_label.innerHTML = password;
 
         if (canvas) {
-            var content = `WIFI:S:${ssid};T:WPA;P:#####;;`;
+            var content = `WIFI:S:${ssid};T:WPA;P:${password};;`;
             QRCode.toCanvas(canvas, content, function (error) {
                 if (error) console.error(error)
                 console.log('success!');

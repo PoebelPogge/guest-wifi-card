@@ -1,13 +1,11 @@
 
 <ha-card>
     <div class="card-content">
-        <p class="error error hidden">
+        <p class="error hidden">
         <dl class="dl">
-            <dt class="dt"></dt>
-            <dd class="dd">
-                <span>QR Code</span>
-                <canvas id="canvas"></canvas>
-            </dd>
+            <div class="label">Name: <span id="ssid-label"></span></div>
+            <div class="label">Password: <span id="password-label"></span></div>
+            <canvas class="qrcode" id="canvas"></canvas>
         </dl>
     </div>
 </ha-card>
