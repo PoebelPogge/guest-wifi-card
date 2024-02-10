@@ -1,8 +1,9 @@
 node_modules/
 .parcel-cache/
 
+dist/*
 !dist/card.js
 !dist/card.js.map
-dist/
+
 
 .DS_Store
