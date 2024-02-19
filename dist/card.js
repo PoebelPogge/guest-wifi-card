@@ -5,7 +5,7 @@ function $parcel$export(e, n, v, s) {
   Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
 }
 var $613c0f48d1c19570$exports = {};
-$613c0f48d1c19570$exports = "\n<ha-card>\n    <div class=\"card-content\">\n        <p class=\"error hidden\">\n        </p><dl class=\"dl\">\n            <div class=\"label\">Name: <span id=\"ssid-label\"></span></div>\n            <div class=\"label\">Password: <span id=\"password-label\"></span></div>\n            <canvas class=\"qrcode\" id=\"canvas\"></canvas>\n        </dl>\n    </div>\n</ha-card><script src=\"/card.6516287c.js\"></script>";
+$613c0f48d1c19570$exports = "\n<ha-card>\n    <div class=\"card-content\">\n        <p class=\"error hidden\">\n        </p><dl class=\"dl\">\n            <div class=\"label\">Name: <span id=\"ssid-label\"></span></div>\n            <div class=\"label\">Password: <span id=\"password-label\"></span></div>\n            <canvas class=\"qrcode\" id=\"canvas\"></canvas>\n        </dl>\n    </div>\n</ha-card>";
 
 
 var $f75af1db21f1c9c2$exports = {};
@@ -2768,7 +2768,7 @@ class $bf513b85805031e6$export$926812285850f63b extends HTMLElement {
     }
     static getStubConfig() {
         return {
-            entity: "input_boolean.tcwt",
+            entity: "",
             header: ""
         };
     }
@@ -2776,7 +2776,7 @@ class $bf513b85805031e6$export$926812285850f63b extends HTMLElement {
 
 
 var $af601b5029955fa4$exports = {};
-$af601b5029955fa4$exports = "\n<form class=\"table\">\n    <div class=\"row\"><label class=\"label cell\" for=\"header\">Titel:</label><input class=\"value cell\" id=\"header\"></div>\n    <div class=\"row\"><label class=\"label cell\" for=\"ssid\">SSID:</label><input class=\"value cell\" id=\"ssid\"></div>\n    <div class=\"row\"><label class=\"label cell\" for=\"entity\">Password:</label><input class=\"value cell\" id=\"entity\"></div>\n</form><script src=\"/editor.a2341e9b.js\"></script>";
+$af601b5029955fa4$exports = "\n<form class=\"table\">\n    <div class=\"row\"><label class=\"label cell\" for=\"header\">Titel:</label><input class=\"value cell\" id=\"header\"></div>\n    <div class=\"row\"><label class=\"label cell\" for=\"ssid\">SSID:</label><input class=\"value cell\" id=\"ssid\"></div>\n    <div class=\"row\"><label class=\"label cell\" for=\"entity\">Password:</label><input class=\"value cell\" id=\"entity\"></div>\n</form>";
 
 
 var $66bfc048aff65ddb$exports = {};
