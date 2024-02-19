@@ -11,3 +11,7 @@ QR Code will be displayed. Very usefull for Dashboards
 ![screenshot](img/screenshot.png)
 
 ***
+
+## Development
+To create a new version which is useable in Home Assistant [Parcel](https://github.com/parcel-bundler/parcel#readme) is used.
+Please do run `npm run build`. In the folder `dist/` a `card.js` and a `card.js.map` file appears if everything is successfull. These two files are the compiled version of this card.

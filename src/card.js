@@ -3,8 +3,6 @@ import css from "bundle-text:./card.css";
 
 import QRCode from "qrcode";
 
-
-
 export class GuestWifiCard extends HTMLElement {
     // private properties
     _config;
@@ -139,7 +137,7 @@ export class GuestWifiCard extends HTMLElement {
 
     static getStubConfig() {
         return {
-            entity: "input_boolean.tcwt",
+            entity: "",
             header: "",
         };
     }
